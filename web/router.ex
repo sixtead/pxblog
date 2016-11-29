@@ -18,8 +18,9 @@ defmodule Pxblog.Router do
 
     get "/", PageController, :index
 
-    resources "/users", UserController
-    resources "/posts", PostController
+    resources "/users", UserController do
+      resources "/posts", PostController
+    end
     resources "/sessions", SessionController, only: [:new, :create, :delete]
   end
 
