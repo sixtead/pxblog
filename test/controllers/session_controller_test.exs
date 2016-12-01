@@ -13,7 +13,7 @@ defmodule Pxblog.SessionControllerTest do
     end
     
     test "shows the login form" do
-        conn = get conn, session_path(conn, :new)
+        conn = get build_conn, session_path(build_conn, :new)
         assert html_response(conn, 200) =~ "Login"
     end
     
