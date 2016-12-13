@@ -18,14 +18,16 @@ defmodule Pxblog.SessionController do
     
     def create(conn, _), do: failed_login(conn)
     
-    defp sign_in(user, password, conn) when is_nil(user) do
+    defp sign_in(user, _password, conn) when is_nil(user) do
         failed_login(conn)
     end
     
     defp sign_in(user, password, conn) do
         if checkpw(password, user.password_digest) do
             conn
-            |> put_session(:current_user, %{id: user.id, username: user.username})
+            |> put_session(:current_user, %{id: user.id,
+                                            username: user.username,
+                                            role_id: user.role_id})
             |> put_flash(:info, "Sign in succesful!")
             |> redirect(to: page_path(conn, :index))
         else
