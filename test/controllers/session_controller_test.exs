@@ -38,5 +38,5 @@ defmodule Pxblog.SessionControllerTest do
       assert get_flash(conn, :error) == "Invalid username/password combination!"
       assert redirected_to(conn) == page_path(conn, :index)
   end
-    
+
 end
