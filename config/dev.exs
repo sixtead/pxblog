@@ -40,5 +40,5 @@ config :pxblog, Pxblog.Repo,
   password: "postgres",
   database: "pxblog_dev",
   hostname: "localhost",
-  template: "template0",
+  # template: "template0",
   pool_size: 10
